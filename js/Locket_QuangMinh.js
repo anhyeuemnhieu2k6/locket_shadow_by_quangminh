@@ -1,4 +1,4 @@
-// QuangMinh - Locket response script (V5)
+// QuangMinh - Locket response script (V6 - app-scoped)
 // Chinh sua tu file do nguoi dung cung cap.
 // Chi su dung trong moi truong va voi du lieu ban co quyen thu nghiem.
 
@@ -8,7 +8,12 @@ const mapping = {
 
 const ua = ($request && $request.headers &&
   ($request.headers["User-Agent"] || $request.headers["user-agent"])) || "";
+const isLocketRequest = /locket/i.test(String(ua));
 
+if (!isLocketRequest) {
+  // Không thay đổi phản hồi của ứng dụng khác hoặc User-Agent không xác định.
+  $done({});
+} else {
 try {
   const obj = JSON.parse($response.body);
   if (!obj || !obj.subscriber || typeof obj.subscriber !== "object") {
@@ -65,4 +70,6 @@ try {
   // Neu response khong dung dinh dang mong doi thi giu nguyen de tranh lam hong ket noi.
   console.log("[QuangMinh V5] Response not rewritten: " + err.message);
   $done({ body: $response.body });
+}
+
 }

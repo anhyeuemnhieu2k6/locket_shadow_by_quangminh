@@ -106,7 +106,6 @@ const mapping = {
   'Percento': ['premium'],
   'Planny': ['premium'],
   'CPUMonitor': ['Pro'],
-  'Locket': ['Gold'],
   'My%20Tim': ['Pro'],
   'Photom': ['premium', 'pixelmator_photo_pro_subscription_v1_pro_offer'],
   'mizframa': ['premium', 'mf_20_lifetime2'],
@@ -195,6 +194,16 @@ const mapping = {
   'Dedupe/': ['Pro','com.curiouscreatorsco.Dedupe.pro.lifetime.notrial.39_99'],
   'Wozi': ['wozi_pro_2023']
 };
+
+// QuangMinh V6: chỉ chạy cho ứng dụng có tên trong mapping.
+// Locket được xử lý riêng tại Locket_QuangMinh.js.
+const __qmUA = String((typeof $request !== 'undefined' && $request.headers &&
+  ($request.headers["User-Agent"] || $request.headers["user-agent"])) || "");
+const __qmMatchedApp = !/locket/i.test(__qmUA) &&
+  Object.keys(mapping).some(function (app) { return __qmUA.includes(app); });
+if (!__qmMatchedApp) {
+  $done({}); // Trả phản hồi gốc, không chỉnh subscription/entitlement.
+} else {
 
 // =========    Phần cố định  ========= //
 // =========  @duyvinh09 ========= //
@@ -383,3 +392,4 @@ $done({
   body: JSON[_0x31b760(390, "nS%t")](obj)
 });
 var version_ = "jsjiami.com.v7";
+}

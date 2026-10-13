@@ -1,4 +1,4 @@
-#!name=QuangMinh All In One V5 Stable
+#!name=QuangMinh All In One V6 Stable
 #!desc=QuangMinh V5 – STABLE - tắt VSCO và RevenueCatVip do trùng miền RevenueCat; có Sub-Store
 #!author=QuangMinh (tùy biến; mã gốc xem README)
 # Repository cá nhân, script và module đi kèm được lưu tại chính kho này
@@ -55,8 +55,6 @@ spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.co
 SoundCloudGo+=type=http-response,pattern=https://api-mobile.soundcloud.com/configuration/ios,requires-body=1,script-path=https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/refs/heads/main/js/SoundCloudGoPlus.js
 #************************************#
 
-#VSCO
-# V5 STABLE DISABLED (RevenueCat URL overlap): VSCO = type=http-response,pattern=^https://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$),script-path=https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/refs/heads/main/js/VSCO.js, requires-body=true, timeout=60
 #************************************#
 
 #AlightMotion

@@ -1,44 +1,28 @@
-# QuangMinh All In One V5 – FULL
+# QuangMinh All In One — V6 Isolated
 
-Bộ cấu hình Shadowrocket riêng của QuangMinh, lưu trữ tại `anhyeuemnhieu2k6/locket_shadow_by_quangminh`.
+Repo: https://github.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh
 
-## Chọn một cấu hình
+Bản dựa trên V5 No VSCO. Toàn bộ thư mục `js/`, `modules/`, `assets/` được giữ lại.
 
-| File | Chức năng |
-|---|---|
-| `All_In_One.conf` | **FULL mặc định** – giữ bật toàn bộ script như bản Full, có Sub-Store |
-| `All_In_One.sgmodule` | Bản module FULL; không bật đồng thời với `.conf` |
-| `All_In_One_Full.conf` / `.sgmodule` | Bản sao đầy đủ dùng tên riêng |
-| `All_In_One_Stable.conf` / `.sgmodule` | Bản tránh trùng RevenueCat; **tắt mặc định 2 hook VSCO và RevenueCatVip**, nhưng vẫn giữ các file JS |
-| `All_In_One_Independent.conf` / `.sgmodule` | Bản ít phụ thuộc hơn: không tải ba script Sub-Store; tắt 2 hook trên |
+## Các cấu hình
 
-**Phiên bản Full giữ tất cả các script được bật** theo yêu cầu. Tuy nhiên, `VSCO`, `RevenueCatVip` và Locket đều có thể xử lý cùng URL RevenueCat; bản Full có nguy cơ xung đột. Bản Stable được cung cấp chỉ để bạn tự chọn.
+- `All_In_One.conf`: bản Full, Sub-Store và RevenueCatVip được giữ; loại bỏ quy tắc VSCO theo yêu cầu. Hai script RevenueCat được giới hạn theo `User-Agent` để tránh xử lý chéo.
+- `All_In_One_Full.conf`: tương tự Full.
+- `All_In_One_Stable.conf`: bản thận trọng hơn, không bật RevenueCatVip; giữ Locket.
+- `All_In_One_Independent.conf`: loại các đường dẫn Sub-Store ngoài repository (không còn chức năng Sub-Store).
+- Các file `.sgmodule` là phiên bản module tương ứng. **Không bật đồng thời All_In_One.conf và All_In_One.sgmodule**.
 
-## Các thay đổi so với V4
+## Sửa thực tế V6
 
-- Thay `js/Locket_QuangMinh.js` bằng bản **V5** đã được kiểm tra cú pháp; giữ ngày mua 28/06/2006 như bạn đặt.
-- Thay `js/Locket_Unlocked.js` bằng file người dùng cung cấp gần nhất (chủ đề và thông điệp Quang Minh).
-- Khôi phục **VSCO** và **RevenueCatVip** đang bị chú thích trong V4 ở hai file FULL mặc định và hai file có hậu tố `_Full`.
-- Không xóa bất kỳ script, module, hình ảnh nào đang có trong gói V4.
-- Giữ các URL `script-path` về repository QuangMinh; ba URL Sub-Store vẫn từ `sub-store-org`.
+1. `js/Locket_QuangMinh.js`: chỉ xử lý phản hồi nếu `User-Agent` chứa `Locket`, còn lại `$done({})`.
+2. `js/revenuecat.js`: bỏ mục `Locket` khỏi mapping; chỉ sửa phản hồi khi `User-Agent` khớp một ứng dụng còn trong mapping. Không khớp → `$done({})`.
+3. Không thay đổi logic thuê bao/dữ liệu ngày tháng trong script Locket, không chỉnh các script khác.
+4. VSCO vẫn không có quy tắc chạy trong các profile; `js/VSCO.js` là file lưu trữ không được cấu hình gọi.
 
-## Link dùng trong Shadowrocket (sau khi bạn tải lên GitHub)
+## Giới hạn
 
-Full `.conf` (mặc định):
-`https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/main/All_In_One.conf`
+Không có bằng chứng app trên iPhone luôn gửi `User-Agent` chứa đúng tên ứng dụng. Nếu tên bị thiếu/khác, V6 chủ ý không sửa phản hồi để tránh phá hỏng ứng dụng khác. Các quy tắc URL của RevenueCat vẫn trùng nhau về mặt kỹ thuật nhưng **script được kiểm tra và bỏ qua theo ứng dụng**. Không thể phân biệt các ứng dụng dùng cùng API chỉ từ tên miền.
 
-Stable `.conf`:
-`https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/main/All_In_One_Stable.conf`
+Các script có thể can thiệp lưu lượng HTTPS và trạng thái thuê bao ứng dụng; chỉ dùng với kết nối và quyền sử dụng phù hợp. Chưa kiểm thử trên Shadowrocket/iPhone; trạng thái thuê bao do dịch vụ xác nhận không được bảo đảm.
 
-## Cách upload
-
-1. Giải nén và **upload toàn bộ nội dung** lên nhánh `main` của repo, không tải nguyên ZIP. Giữ nguyên các thư mục `js`, `modules`, `assets`.
-2. Ghi đè các file trùng tên (`All_In_One.conf`, `js/Locket_QuangMinh.js`, `js/Locket_Unlocked.js`, ...). Nếu GitHub web không cho ghi đè, hãy mở từng file và sửa bằng biểu tượng bút chì hoặc dùng GitHub Desktop.
-3. Nhấn **Commit changes**, mở link RAW ở trên và kiểm tra dòng đầu là `#!name=QuangMinh All In One V5 Full`.
-4. Trong Shadowrocket tải lại cấu hình. **Chỉ bật một phương án**: dùng `.conf` hoặc dùng `.sgmodule`, không dùng đồng thời hai bản All In One.
-
-## Giới hạn và an toàn
-
-Kiểm tra tĩnh JavaScript/đường dẫn không phải xác minh chạy trên iOS. Một số script dùng HTTPS MITM, làm thay đổi dữ liệu ứng dụng và có thể xử lý dữ liệu nhạy cảm. Chỉ cài đặt những thành phần bạn đã đánh giá. Không thể bảo đảm kích hoạt quyền thuê bao trên dịch vụ của bên thứ ba. Bản Full còn phụ thuộc ba script Sub-Store từ bên ngoài. Tên người quản lý repository không thay thế quyền tác giả của các thành phần khác; cần tuân thủ giấy phép/giấy phép riêng từ tác giả.
-
-Xem `BAO_CAO_V5.txt`, `KIEM_TRA.md` và `PHU_THUOC_VA_AN_TOAN.md` để biết chi tiết.
+Nếu tác giả gốc xóa repository, file đã sao lưu riêng vẫn còn, nhưng một số dịch vụ/API ngoài GitHub vẫn cần kết nối.
