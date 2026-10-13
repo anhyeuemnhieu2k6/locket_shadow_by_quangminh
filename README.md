@@ -41,7 +41,7 @@ Những đường dẫn này hoạt động **sau khi bạn upload toàn bộ n�
 
 ## Tải lên GitHub không cần lệnh
 
-1. Giải nén `QuangMinh_Independent_V2.zip`.
+1. Giải nén `QuangMinh_Independent_V3.zip`.
 2. Mở repository: <https://github.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh>.
 3. Chọn **Add file → Upload files**; kéo **toàn bộ nội dung bên trong** thư mục đã giải nén vào, giữ các folder `js`, `modules`, `assets`.
 4. Nếu GitHub cảnh báo trùng tên (`README.md`, `All_In_One.conf`...), đó là các file cần cập nhật. Chọn **Commit changes**; đừng xóa cả repository.
