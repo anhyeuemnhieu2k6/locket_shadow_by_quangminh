@@ -1,0 +1,17 @@
+QUANGMINH FULL V5 - STATIC VALIDATION
+====================================
+{"file": "All_In_One.conf", "scripts": 25, "self_hosted": 22, "external_SubStore": 3, "VSCO_active": 1, "RevenueCatVip_active": 1}
+{"file": "All_In_One.sgmodule", "scripts": 25, "self_hosted": 22, "external_SubStore": 3, "VSCO_active": 1, "RevenueCatVip_active": 1}
+{"file": "All_In_One_Full.conf", "scripts": 25, "self_hosted": 22, "external_SubStore": 3, "VSCO_active": 1, "RevenueCatVip_active": 1}
+{"file": "All_In_One_Full.sgmodule", "scripts": 25, "self_hosted": 22, "external_SubStore": 3, "VSCO_active": 1, "RevenueCatVip_active": 1}
+{"file": "All_In_One_Independent.conf", "scripts": 20, "self_hosted": 20, "external_SubStore": 0, "VSCO_active": 0, "RevenueCatVip_active": 0}
+{"file": "All_In_One_Independent.sgmodule", "scripts": 20, "self_hosted": 20, "external_SubStore": 0, "VSCO_active": 0, "RevenueCatVip_active": 0}
+{"file": "All_In_One_Stable.conf", "scripts": 23, "self_hosted": 20, "external_SubStore": 3, "VSCO_active": 0, "RevenueCatVip_active": 0}
+{"file": "All_In_One_Stable.sgmodule", "scripts": 23, "self_hosted": 20, "external_SubStore": 3, "VSCO_active": 0, "RevenueCatVip_active": 0}
+JavaScript syntax checks: 28 PASS
+JS smoke test: PASS (mocked only)
+Modules retained: 7
+Missing local JS references: 0
+External Sub-Store refs in Full: 3
+Full response hook collision risk: YES
+No live iOS / Shadowrocket / subscription validation performed.

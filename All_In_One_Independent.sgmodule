@@ -1,5 +1,5 @@
-#!name=QuangMinh All In One V4
-#!desc=QuangMinh V4 – bản độc lập không Sub-Store
+#!name=QuangMinh All In One V5 Independent
+#!desc=QuangMinh V5 – INDEPENDENT - tắt hai hook trùng và không dùng Sub-Store
 #!author=QuangMinh (tùy biến; mã gốc xem README)
 # Repository cá nhân, script và module đi kèm được lưu tại chính kho này
 #!homepage=https://github.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh
@@ -52,7 +52,7 @@ SoundCloudGo+=type=http-response,pattern=https://api-mobile.soundcloud.com/confi
 #************************************#
 
 #VSCO
-# V4 DISABLED (RevenueCat URL overlap): VSCO = type=http-response,pattern=^https://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$),script-path=https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/refs/heads/main/js/VSCO.js, requires-body=true, timeout=60
+# V5 INDEPENDENT DISABLED (RevenueCat URL overlap): VSCO = type=http-response,pattern=^https://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$),script-path=https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/refs/heads/main/js/VSCO.js, requires-body=true, timeout=60
 #************************************#
 
 #AlightMotion
@@ -105,7 +105,7 @@ locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googlea
 
 #RevenueCatVip
 #hostname = api.revenuecat.com
-# V4 DISABLED (RevenueCat URL overlap): RevenueCatVip = type=http-response, pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/refs/heads/main/js/revenuecat.js, requires-body=true, max-size=-1, timeout=60
+# V5 INDEPENDENT DISABLED (RevenueCat URL overlap): RevenueCatVip = type=http-response, pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/refs/heads/main/js/revenuecat.js, requires-body=true, max-size=-1, timeout=60
 #RevenueCatDeleteHeader = type=http-request, pattern=^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/refs/heads/main/js/deleteHeader.js, timeout=60
 #************************************#
 
