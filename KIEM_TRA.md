@@ -1,21 +1,10 @@
-# Báo cáo kiểm tra tĩnh – QuangMinh V3
+# QuangMinh V4 – kiểm tra nội dung gói
 
-Được tạo tự động; **không** phải kiểm thử hoạt động trong Shadowrocket.
+- Nguồn: `QuangMinh_Independent_V3` do người dùng đã cung cấp trong cuộc trò chuyện.
+- Kiểm tra tĩnh nội dung, đường dẫn `script-path`, SHA-256 và cú pháp JavaScript (nếu Node.js khả dụng).
+- Mục tiêu: bản Full ở `All_In_One.conf` và `All_In_One.sgmodule`, hai hook RevenueCat rộng bị vô hiệu bằng chú thích.
+- Không có xác thực thực tế trên iOS / Shadowrocket / Locket; danh sách chứng chỉ và tình trạng được tin cậy của máy không được sửa trong gói.
+- Các file `All_In_One_Independent.*` được giữ để dùng khi không cần Sub-Store.
+- Kiểm tra bên ngoài còn 3 `script-path` Sub-Store trên các bản Full.
 
-| Tệp | Tổng script-path | Script-path ở repo ngoài | Đường dẫn nội bộ thiếu |
-|---|---:|---:|---:|
-| `All_In_One_Full.conf` | 25 | 3 | 0 |
-| `All_In_One.conf` | 22 | 0 | 0 |
-| `All_In_One_Full.sgmodule` | 25 | 3 | 0 |
-| `All_In_One.sgmodule` | 22 | 0 | 0 |
-| `modules/Locket_QuangMinh.sgmodule` | 2 | 0 | 0 |
-| `modules/BeautyPlus.sgmodule` | 1 | 0 | 0 |
-| `modules/SODA.sgmodule` | 1 | 0 | 0 |
-| `modules/ios-location-spoofer.sgmodule` | 1 | 0 | 0 |
-| `modules/itunes.sgmodule` | 1 | 0 | 0 |
-| `modules/Camera360.sgmodule` | 1 | 0 | 0 |
-| `modules/snow.sgmodule` | 1 | 0 | 0 |
-
-- Tất cả 27 tệp `.js` hiện có kiểm tra cú pháp bằng `node --check` thành công; không có nghĩa sẽ chạy đúng trong iOS.
-- Chưa thực hiện thử MITM, import module hoặc chạy dữ liệu thực tế.
-- Khi cập nhật trên GitHub: các file mới có đường dẫn RAW hợp lệ **chỉ sau khi commit**.
+Xem `BAO_CAO_V4.txt` để biết số kiểm tra tự động.

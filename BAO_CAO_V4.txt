@@ -1,0 +1,12 @@
+QUANGMINH FULL V4 - STATIC VERIFICATION
+====================================
+All_In_One.conf: active_script_refs=23, local_refs=20, external_SubStore_refs=3: PASS
+All_In_One.sgmodule: active_script_refs=23, local_refs=20, external_SubStore_refs=3: PASS
+All_In_One_Full.conf: active_script_refs=23, local_refs=20, external_SubStore_refs=3: PASS
+All_In_One_Full.sgmodule: active_script_refs=23, local_refs=20, external_SubStore_refs=3: PASS
+All_In_One_Independent.conf: active_script_refs=20, local_refs=20, external_SubStore_refs=0: PASS
+All_In_One_Independent.sgmodule: active_script_refs=20, local_refs=20, external_SubStore_refs=0: PASS
+JS files identical to V3: 28
+Node.js syntax checks: 28
+Missing local script references: 0
+Note: static checks only; not a live iOS/Shadowrocket functionality test.

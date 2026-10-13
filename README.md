@@ -1,50 +1,43 @@
-# QuangMinh – iOS / Shadowrocket Configuration
+# QuangMinh All In One V4 – FULL
 
-**Chủ repository / người duy trì bản chỉnh sửa:** QuangMinh (`anhyeuemnhieu2k6`).
+**Kho riêng:** <https://github.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh>  
+**Người duy trì bản tùy biến:** QuangMinh. Bộ mã được tùy biến từ `duyvinh09/Module_IOS` và những thành phần khác. Việc đổi tên không làm thay đổi tác quyền của mã nguồn.
 
-**Đây là bản tùy biến / sao lưu độc lập đối với các script đi kèm**, không phải khẳng định toàn bộ mã nguồn được QuangMinh viết từ đầu. Bản gốc liên quan đến dự án `duyvinh09/Module_IOS`, do Đinh Duy Vinh tổng hợp. Người dùng cho biết đã được tác giả gốc cho phép tùy biến. Các thành phần của bên thứ ba có điều khoản riêng.
+## Bản V4 mặc định
 
-## Chọn cấu hình
+- `All_In_One.conf` — **FULL** Shadowrocket config (bao gồm 3 hook Sub-Store chính thức).
+- `All_In_One.sgmodule` — **FULL** dạng module Shadowrocket.
+- `All_In_One_Full.conf` và `All_In_One_Full.sgmodule` — tên thay thế, nội dung tính năng tương đương các file Full ở trên.
+- `All_In_One_Independent.conf` và `All_In_One_Independent.sgmodule` — không dùng Sub-Store; ít phụ thuộc ngoài hơn.
+- `js/`, `modules/`, `assets/` — bộ tài nguyên đi kèm từ V3.
 
-| File | Loại | Phụ thuộc bên ngoài để tải script |
-|---|---|---|
-| `All_In_One.conf` | **Khuyên dùng**: cấu hình Shadowrocket độc lập hơn | Không còn `script-path` gọi kho của người khác |
-| `All_In_One.sgmodule` | Module độc lập hơn | Không còn `script-path` gọi kho người khác |
-| `All_In_One_Full.conf` | Bản đầy đủ với Sub-Store | Còn 3 `script-path` tới Sub-Store chính thức |
-| `All_In_One_Full.sgmodule` | Module đầy đủ với Sub-Store | Còn 3 `script-path` tới Sub-Store chính thức |
+## Những thay đổi V4
 
-## Đường dẫn RAW
+1. Tắt mặc định các **hook script** `VSCO` và `RevenueCatVip` trong cả 6 file cấu hình/module bằng dấu `#` trước dòng script. **File JavaScript vẫn giữ nguyên** để không làm mất dữ liệu; chỉ không tự chạy khi dùng cấu hình mới.
+2. Giữ `revenuecat`, `deleteHeader`, `locket_rc` và đường dẫn script tại repo QuangMinh.
+3. **Đặt bản FULL làm file `All_In_One.conf` mặc định**, để đường dẫn RAW trước kia vẫn dùng được sau khi cập nhật.
+4. Giữ Sub-Store trong bản FULL (3 đường dẫn chính thức ở GitHub `sub-store-org`); không tuyên bố hoàn toàn độc lập khỏi tài nguyên bên ngoài.
+5. Không sửa logic JavaScript, không thay đổi các hook khác. Tên cấu hình hiển thị V4.
 
-- Cấu hình độc lập: `https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/refs/heads/main/All_In_One.conf`
-- Cấu hình đầy đủ: `https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/refs/heads/main/All_In_One_Full.conf`
-- Module độc lập: `https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/refs/heads/main/All_In_One.sgmodule`
-- Module đầy đủ: `https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/refs/heads/main/All_In_One_Full.sgmodule`
+Việc một ứng dụng hiển thị quyền thuê bao vẫn phụ thuộc xác minh của ứng dụng/máy chủ; kết quả thao tác thủ công không phải bằng chứng đảm bảo hoạt động của V4 về sau. Các script MITM có thể truy cập dữ liệu nhạy cảm. Chỉ bật với domain và tính năng đã đánh giá an toàn.
 
-Những đường dẫn này hoạt động **sau khi bạn upload toàn bộ nội dung của gói lên nhánh `main`**, giữ đúng cấu trúc thư mục.
+## Link RAW cho Shadowrocket (sau khi commit)
 
-## Những thay đổi so với bản cũ
+**Bản Full mặc định:**
 
-- Cập nhật tên cấu hình và người duy trì thành QuangMinh.
-- 4 module độc lập (`BeautyPlus`, `Camera360`, `SODA`, `snow`) tải file `.js` từ **repository của bạn** thay vì kho của bên khác. Đây là các script có sẵn trong bản sao do bạn cung cấp, **chưa được chứng minh tương đương hoàn toàn** với các script bên ngoài trước kia.
-- Icon Camera360 dùng ảnh ở `assets/img/` của bạn; sửa icon PNG có phần mở rộng chuẩn, giữ `.webp` cũ để tương thích.
-- 2 cấu hình mặc định bỏ 3 hook Sub-Store; 2 bản `Full` vẫn giữ Sub-Store chính thức.
-- Chỉnh template `engine={{{script}}}` thành `engine=jsc` cho YouTube, sửa định dạng hook VSCO/CamScanner rõ ràng bị thiếu trường / dư khoảng trắng, và bỏ mục MITM trống. Những mục khác chưa được khẳng định hợp lệ trên mọi phiên bản Shadowrocket.
-- Không sửa logic JavaScript của bản gốc, không thêm máy chủ/API thu thập dữ liệu.
+`https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/main/All_In_One.conf`
 
-## Giới hạn quan trọng
+**Module Full:**
 
-1. **Độc lập với repository gốc** ≠ độc lập Internet hoặc ứng dụng khác. Shadowrocket, GitHub RAW, API của ứng dụng, CDN, DNS, Google Translate, Open-Meteo, OpenStreetMap và các máy chủ bạn dùng vẫn là những bên thứ ba.
-2. Mọi file JS / module ở đây chưa được kiểm thử trực tiếp trên iPhone. Tính năng có thể ngừng khi API ứng dụng thay đổi, dù GitHub gốc còn hay mất.
-3. Các script phản hồi HTTPS có thể đọc/sửa dữ liệu ứng dụng, một số có liên quan tới trạng thái đăng ký/trả phí; chỉ sử dụng trong phạm vi được phép. **Không bật MITM hàng loạt nếu chưa hiểu rủi ro.**
-4. Tác giả Sub-Store phát hành dự án theo giấy phép AGPL-3.0. Vì vậy gói này không tự sao chép/bundled 3 file release Sub-Store; bản Full gọi bản chính thức. Nếu cần tự host Sub-Store, phải bảo đảm tuân thủ giấy phép và cung cấp source tương ứng.
-5. Cần xem `PHU_THUOC_VA_AN_TOAN.md` và `KIEM_TRA.md` để kiểm tra an toàn/sự khác biệt.
+`https://raw.githubusercontent.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh/main/All_In_One.sgmodule`
 
-## Tải lên GitHub không cần lệnh
+## Cách tải lên GitHub
 
-1. Giải nén `QuangMinh_Independent_V3.zip`.
-2. Mở repository: <https://github.com/anhyeuemnhieu2k6/locket_shadow_by_quangminh>.
-3. Chọn **Add file → Upload files**; kéo **toàn bộ nội dung bên trong** thư mục đã giải nén vào, giữ các folder `js`, `modules`, `assets`.
-4. Nếu GitHub cảnh báo trùng tên (`README.md`, `All_In_One.conf`...), đó là các file cần cập nhật. Chọn **Commit changes**; đừng xóa cả repository.
-5. Mở đường dẫn RAW cấu hình sau commit và kiểm tra.
+1. Sao lưu bản cũ đề phòng cần quay lại.
+2. Giải nén `QuangMinh_Full_V4.zip` trên máy.
+3. Mở repo GitHub → **Add file → Upload files**. Kéo **toàn bộ tệp và thư mục bên trong**, không chỉ ZIP; giữ đúng vị trí gốc cho `js/`, `modules/`, `assets/`.
+4. Xác nhận GitHub hiển thị file thay đổi → **Commit changes**. Nếu giao diện trình duyệt không cho ghi đè file trùng tên, dùng GitHub Desktop để đồng bộ thay vì chỉ tải một phần.
+5. Mở URL RAW trên; kiểm tra đầu file hiển thị `#!name=QuangMinh All In One V4`, có 3 Sub-Store script và hai dòng `# V4 DISABLED`.
+6. Trong Shadowrocket: tắt module All In One nếu đang chọn `All_In_One.conf` (tránh chạy trùng), tải lại cấu hình, bật đúng một nguồn. Nếu muốn dùng module, chọn `default.conf` và bật duy nhất module phù hợp.
 
-Nếu browser upload không giữ đúng cấu trúc thư mục, dùng GitHub Desktop hoặc Git để commit những thay đổi này.
+**Quan trọng:** Các script còn lại vẫn cần dịch vụ/API của bên thứ ba. Kho này không bảo đảm quyền sử dụng hay khả năng hoạt động của các dịch vụ trả phí. Xem `PHU_THUOC_VA_AN_TOAN.md` và `KIEM_TRA.md`.

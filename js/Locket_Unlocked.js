@@ -246,10 +246,10 @@ if (ua.includes("Locket")) {
             ],
         },
         {
-            section: "🎨 Decorative by Duy Vinh",
+            section: "🎨 Decorative by Quang Minh",
             items: [
                 {
-                    overlay_id: "caption:duyvinh09",
+                    overlay_id: "caption:LOCKET GOLD FROM QUANG MINH WITH LOVE",
                     source: "remote",
                     caption: {
                         background: { colors: ["#B8E7FF", "#A8F5D0", "#DCCBFF"], },
